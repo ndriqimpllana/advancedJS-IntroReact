@@ -41,3 +41,41 @@ function isOdd(num) {
 
 console.log(isOdd(6)); // false
 console.log(isOdd(7)); // true
+
+
+function greetUser() {
+    console.log("hello, student!");
+}
+
+greetUser(); // Output: hello, student!
+
+function addTwoNumbers(a, b) {
+    return a + b;
+}
+
+console.log(addTwoNumbers(4, 19));
+
+
+function greet(name) {
+    console.log("hello," + name);
+}
+
+greet("Ali"); 
+
+function countToFive() {
+    for (let i = 0; i <=5; i++) {
+        console.log(i);
+    }
+}
+
+countToFive();
+
+function printRange(n) {
+    for (let i = 0; i <= n; i++) {
+        console.log(i)
+    }
+}
+
+printRange(20); 
+
+function
