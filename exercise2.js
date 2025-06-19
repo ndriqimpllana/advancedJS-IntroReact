@@ -30,3 +30,15 @@ const updateData = () => {
 updateData();
 
 setInterval(updateData, 5000);
+
+async function fetchCarDetaile() {
+    const apiUrl = 'https://api.api-ninjas.com/v1/cars'
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        // You can handle the fetched data here if needed
+    } catch (error) {
+        console.log('Error fetching data', error);
+    }
+}
