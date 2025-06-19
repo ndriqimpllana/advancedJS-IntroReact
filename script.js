@@ -135,3 +135,43 @@ async function displayUserData() {
     
 }
 document.addEventListener('DOMContentLoaded', displayUserData);
+
+async function getTodoItem() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+
+        if(!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const todo = await response.json();
+        console.log('Todo Item:', todo);
+    } catch(error) {
+        console.log('Fetch error:', error.message);
+    }
+}
+
+getTodoItem();
+
+
+async function fetchPokemonData(pokemonName){
+    const response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+    const pokemonData = await response.json();
+    return pokemonData;
+}
+
+document.addEventListener('DOMContentLoaded', async() =>{
+    const pikachuData = await fetchPokemonData('pikachu');
+    const pokemonInfoElement = document.getElementById('pokemon-info');
+
+    //displaying pikachu data
+    pokemonInfoElement.innerHTML = `
+    <h2>${pikachuData.name}</h2>
+    <img src="${pikachuData.sprites.front.default}" alt="${pikachuData.name}">
+    <h3> Abilities </h3>
+    <ul>
+        ${pikachuData.abilities.map(ability => `<li>${ability.ability.name}</li>`).join('')}
+    </ul>
+    <h3>Base experience</h3>
+    <p>${pikachuData.base_experiance}</p>
+    `;
+})
