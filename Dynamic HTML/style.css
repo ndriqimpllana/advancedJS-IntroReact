@@ -1,4 +1,4 @@
- body {
+  body {
     font-family: Arial, sans-serif;
     text-align: center;
   }
@@ -7,8 +7,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     margin-top: 20px;
+   
   }
 
   .dog-card {
@@ -23,6 +25,16 @@
   }
 
   .dog-card img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     border-radius: 5px;
   }
+
+  img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
