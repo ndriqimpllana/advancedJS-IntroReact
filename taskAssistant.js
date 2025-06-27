@@ -12,15 +12,53 @@
 //Function declaration
 
 function greetUser(user) {
-    return `Welcome, ${user}! Let's manage your tasks`;
+    return `Hello, ${user}! Let's manage your taskList`;
 }
 
-console.log(greetUser('Kate'));
-
-let tasks = [];
+let taskList = []
 
 const addTask = (task) => {
-    tasks.append(task);
-    console.log(`New task added: ${task}`);
+    taskList.push(task)
+
+    console.log(`New task added: ${task}`)
 }
 
+const removeTask = (task) => {
+
+    if (taskList.includes(task)) {
+        taskList = taskList.filter(e =>
+            e !== task)
+
+        console.log(`Task ${task} removed`)
+    } else {
+        console.log('Task not included')
+    }
+}
+
+const viewTasks = () => {
+    console.log(taskList)
+}
+
+async function assistant() {
+    const dataLoaded = await Promise.resolve('tasks loaded')
+    console.log(dataLoaded)
+
+
+    const error = dataLoaded !== 'tasks loaded' ? 'Error loading data' : null
+
+    if (error) {
+        console.log(`${error}`)
+        return
+    } else {
+        console.log("Successfully loaded data!")
+        // simulating loading the data 
+        addTask("do dishes")
+        addTask('clean house')
+    }
+
+    // user actions that happen after 
+    removeTask('walk dog')
+    viewTasks()
+}
+
+assistant()
