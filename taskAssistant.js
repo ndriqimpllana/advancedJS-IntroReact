@@ -24,4 +24,3 @@ const addTask = (task) => {
     console.log(`New task added: ${task}`);
 }
 
-const removeTask
